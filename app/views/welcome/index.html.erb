@@ -1,1 +1,15 @@
-<h1>Welcome To Quickvote</h1>
+
+<div class="container">
+
+<h1 class="jumbotron">Welcome To QuickVote!</h1>
+
+
+</div>
+
+
+<p>Hello
+<%= current_user ? current_user.email : "(not logged in)" %> </p>
+
+<%= current_user ? (link_to "Create new vote", new_up_down_vote_path, class: "btn btn-primary") : ""%>
+
+	<%= button_to "Log out", auths_path, method: :delete %>

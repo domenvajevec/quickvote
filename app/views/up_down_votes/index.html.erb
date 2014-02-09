@@ -1,0 +1,13 @@
+
+<h1>List of Up/Down Votes</h1>
+    <ul>
+      <% @up_down_votes.each do |updn| %>
+	      <li>Vote ID <%= updn._id %> </li>
+	      <li>Vote: <%= updn.question %></li>
+	      <li class="glyphicon glyphicon-thumbs-up">Up Votes<%= updn.up_vote %></li>
+	      <li class="glyphicon glyphicon-thumbs-down">Down Votes<%= updn.down_vote %></li>
+	      <li>Remaining Time<%= updn.vote_time %></li>
+    <% end %>
+    </ul>
+
+<%= link_to 'Create new Up/Down Vote', new_up_down_vote_path %>

@@ -1,10 +1,18 @@
 Quickvote::Application.routes.draw do
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  resources :users, only: [:new, :index, :create]
+
+  delete "auths" => "auths#destroy"
+
+  resources :auths, only:[:new, :create]
+
+  resources :up_down_votes, only: [:new, :index, :create]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,0 +1,29 @@
+<h1>UpDownVote#new</h1>
+<p>Find me in app/views/up_down_vote/new.html.erb</p>
+
+
+<div class="create_up_down_vote">
+	
+	<h2>Create a new Up/Down Vote</h2>
+
+	<%= form_for @up_down_vote do |f| %>
+	<p>What would you like to create a vote for? </p><br>
+		<%= f.text_area :question %> <br>
+		<p>How long would you like voting to be open?</p>
+	<%= f.select :vote_time, [['1min',1],['5min',5],['15min',15],['1hr',60]] %>
+	<br>
+	<%= f.submit 'Create' %>
+	<% end %>
+</div>
+
+
+
+
+
+
+
+
+	
+
+
+
