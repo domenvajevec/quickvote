@@ -1,4 +1,5 @@
-<%= render 'listUsers'%>
+
+<%= render 'listUsers' if current_user.admin == "Yes"%>
 
 <p>current_user.admin</p>
 <p>If u were admin, you'd see a list of all users</p>

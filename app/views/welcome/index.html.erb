@@ -12,4 +12,6 @@
 
 <%= current_user ? (link_to "Create new vote", new_up_down_vote_path, class: "btn btn-primary") : ""%>
 
+
+
 	<%= button_to "Log out", auths_path, method: :delete %>

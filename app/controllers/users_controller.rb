@@ -10,8 +10,9 @@ class UsersController < ApplicationController
 
 	def create
 		@user = User.new(user_params)
+		# @user.update_attributes(admin: "No")
 		if @user.save
-			redirect_to users_path
+			redirect_to root_path
 		else
 			redirect_to new_user_path
 		end

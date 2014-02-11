@@ -12,7 +12,10 @@ Quickvote::Application.routes.draw do
 
   resources :auths, only:[:new, :create]
 
-  resources :up_down_votes, only: [:new, :index, :create]
+  resources :up_down_votes, only: [:new, :index, :create, :show ]
+  delete "up_down_votes/:id" => "up_down_votes#destroy"
+  
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

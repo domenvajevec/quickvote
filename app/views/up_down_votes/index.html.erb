@@ -1,13 +1,26 @@
 
-<h1>List of Up/Down Votes</h1>
-    <ul>
-      <% @up_down_votes.each do |updn| %>
-	      <li>Vote ID <%= updn._id %> </li>
-	      <li>Vote: <%= updn.question %></li>
-	      <li class="glyphicon glyphicon-thumbs-up">Up Votes<%= updn.up_vote %></li>
-	      <li class="glyphicon glyphicon-thumbs-down">Down Votes<%= updn.down_vote %></li>
-	      <li>Remaining Time<%= updn.vote_time %></li>
-    <% end %>
-    </ul>
 
-<%= link_to 'Create new Up/Down Vote', new_up_down_vote_path %>
+<h1>List of Up/Down Votes</h1>
+	    <ul>
+	    <div class="voteList">
+          <% @up_down_votes.each do |updn| %>
+    	      <li><h3>Vote: <%= updn.question %></h3></li>
+    	      <li>Vote ID <%= updn._id %> </li>
+    	      <li class="glyphicon glyphicon-thumbs-up">Up Votes<%= updn.up_vote %></li>
+    	      <li class="glyphicon glyphicon-thumbs-down">Down Votes<%= updn.down_vote %></li>
+    	      <li> Remaining Time <%=distance_of_time_in_words(Time.now, (updn.created_at - updn.vote_time.minutes), include_seconds: true) %></li>
+    			<li> Created At <%= updn.created_at  %></li>
+    	      <hr>
+	    </div>
+	    <div class="crud">
+	    	<ul>
+	    		<li><%= link_to "Delete", up_down_vote_path(updn), method: :delete %> </li>
+	    		<li><%=link_to "View", up_down_vote_path(updn) %> </li>
+	    		<li></li>
+	    	</ul>
+
+	    </div>
+        </ul>
+        <% end %>
+
+<%= link_to 'Create new Up/Down Vote', new_up_down_vote_path , class: "btn btn-primary"%>
