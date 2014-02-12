@@ -14,7 +14,7 @@
 	    </div>
 	    <div class="crud">
 	    	<ul>
-	    		<li><%= link_to "Delete", up_down_vote_path(updn), method: :delete %> </li>
+	    		<li><%= link_to "Delete", up_down_vote_path(updn), remote: true, method: :delete %> </li>
 	    		<li><%=link_to "View", up_down_vote_path(updn) %> </li>
 	    		<li></li>
 	    	</ul>

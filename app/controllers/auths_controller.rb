@@ -14,7 +14,7 @@ class AuthsController < ApplicationController
 	def create
 		user = User.find_by(email: params[:user][:email])
 
-		if user.authenticated?(params[:user][:password])
+		if user.authenticated?(params[:user][:password]) 
 			
 			session[:user_id] = user.id
 			flash[:notice] = "Welcome, #{current_user.email}!"

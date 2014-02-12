@@ -1,5 +1,20 @@
-<h3>Vote: <%= @up_down_vote.question %> </h3>
+<div class=""><h3>Vote: <%= @up_down_vote.question %> </h3>
 <h4>Id: <%= @up_down_vote._id %> </h4>
-<p class="glyphicon glyphicon-thumbs-up"> Yes <%= @up_down_vote.up_vote %> </p>
-<p class="glyphicon glyphicon-thumbs-down"> No <%= @up_down_vote.down_vote %> </p>
+<p class="glyphicon glyphicon-thumbs-up" id="thumbs_up"> Yes <%= @up_down_vote.up_vote %> </p>
+<%= link_to  "Yes",{action: "yes_vote"}, method: :post, class: "btn btn-success glyphicon glyphicon-thumbs-up"%>
 
+<p class="glyphicon glyphicon-thumbs-down" id="thumbs_down"> No <%= @up_down_vote.down_vote %> </p>
+
+<%= link_to "No",{action: "no_vote"}, method: :post, class: "btn btn-danger glyphicon glyphicon-thumbs-down"%>
+</div>
+
+
+
+
+
+
+
+<!-- 
+<a href="#" data-no-turbolink data-background-color="#990000">Paint It red</a>
+<a href="#" data-no-turbolink data-background-color="#009900" data-text-color="#ff0000">Paint it green</a>
+-->

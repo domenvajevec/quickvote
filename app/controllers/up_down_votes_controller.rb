@@ -26,14 +26,17 @@ class UpDownVotesController < ApplicationController
   end
 
   def yes_vote
-    up_down_vote = UpDownVote.find(params[:id])
-    up_down_vote.update_attributes(:up_vote, up_down_vote.up_vote + 1)
+    up_down_vote = current_user.up_down_votes.find(params[:id])
+    uv = up_down_vote.up_vote += 1
+    up_down_vote.update_attributes(up_vote: uv)
+    redirect_to up_down_vote_path
   end
 
   def no_vote
-    up_down_vote = UpDownVote.find(params[:id])
-    up_down_vote.update_attributes(:down_vote, up_down_vote.down_vote + 1)
-
+    up_down_vote = current_user.up_down_votes.find(params[:id])
+    dv = up_down_vote.down_vote += 1
+    up_down_vote.update_attributes(up_vote: dv)
+    redirect_to up_down_vote_path
   end
 
   def destroy
