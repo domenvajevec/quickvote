@@ -9,7 +9,11 @@ class UpDownVotesController < ApplicationController
   end
 
   def show
-    @up_down_vote = current_user.up_down_votes.find(params[:id])
+    if current_user
+      @up_down_vote = current_user.up_down_votes.find(params[:id])
+      else
+        redirect_to root_path
+      end
   end
 
   def create

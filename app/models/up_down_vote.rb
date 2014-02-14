@@ -11,6 +11,7 @@ class UpDownVote
   field :down_vote, type: Integer, default: 0
   field :vote_time, type: Integer 
   field :created_at, type: Time, default: Time.now
+  field :_id, type: String, default: -> {question.to_s.parameterize}
 
 
 	def vote_expired?
