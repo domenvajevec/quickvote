@@ -4,7 +4,7 @@ class User
 
   include Mongoid::Document
 
-  embeds_many :up_down_votes
+  has_many :up_down_votes
 
   attr_accessor :password
 

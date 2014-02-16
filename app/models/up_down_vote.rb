@@ -1,7 +1,7 @@
 class UpDownVote
   include Mongoid::Document
 
-  embedded_in :user, :inverse_of => :user
+  belongs_to :user
 
   validates :question, presence: true
   validates :vote_time, presence: true
@@ -12,6 +12,7 @@ class UpDownVote
   field :vote_time, type: Integer 
   field :created_at, type: Time, default: Time.now
   field :_id, type: String, default: -> {question.to_s.parameterize}
+  field :voted, type: Array, default: ['']
 
 
 	def vote_expired?
